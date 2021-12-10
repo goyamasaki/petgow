@@ -6,13 +6,10 @@ const About = () => {
         <div>
             <Link to="/home">Home</Link>　
             <Link to="/policy">ポリシー</Link>
-            <p>会社概要</p>
-            <p>XXXXXX合同会社</p>
+            <p>ここをログインページとする</p>
 
-            <p>お問い合わせ</p>
-            <p>●●●@gmail.com</p>
-
-            <p>GoogleMAP</p>
+            
+         
 
             
 

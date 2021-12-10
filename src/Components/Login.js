@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-
+import { Link } from "react-router-dom";
 import { auth } from "../firebase";
 import {
   onAuthStateChanged,
@@ -65,8 +65,12 @@ const Login = (props) => {
       <hr />
       <span onClick={() => setIsLogin(!isLogin)}>
         {isLogin ? "新規登録" : "ログインに戻る"}
-      </span>
+      </span>　
+      
+      <Link to="/home">Home</Link>
     </div>
+
+    
   );
 };
 

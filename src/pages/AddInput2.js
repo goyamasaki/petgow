@@ -3,8 +3,11 @@ import { storage, db } from "../firebase";
 //Firebase ver9 compliant
 import { ref, uploadBytesResumable, getDownloadURL } from "firebase/storage";
 import { collection, addDoc, serverTimestamp } from "firebase/firestore";
+import { Link } from "react-router-dom";
 
-const AddInput = () => {
+{/* <div><Route></Route></div> */}
+  
+const AddInput2 = () => { 
   // useStateを準備　画像を保持する、入力された文字を保持する
   const [textValue, setTextValue] = useState();
   const [image, setImage] = useState(null);
@@ -77,25 +80,25 @@ const sendClick = (e) => {
 
     return (
         <div>
+        
       {/* 登録の処理 */}
       {/* 記述1. formタグを記述 */}
+      投稿ページ　　
+      <Link to="/home">Home</Link>
+      
       <form onSubmit={sendClick}>
+      
         {/* 記述2.文字登録のinputを用意する */}
+        
         <input
           placeholder="文字を入力"
           type="text"
           value={textValue}
           onChange={(e) => setTextValue(e.target.value)}
         />
-{/* 追記するもフィールドの項目は増えず */}
-{/* <input
-          placeholder="毛色を入力"
-          type="text"
-          value={textValue}
-          onChange={(e) => setTextValue(e.target.value)}
-        /> */}
 
         {/* 記述3.画像登録のinputを用意する */}
+        
         <input type="file" onChange={onChangeImageHandler} />
 
         
@@ -108,9 +111,14 @@ const sendClick = (e) => {
         </button>
         <hr />
       </form>
+      
+      
     </div>
+    
+
+    
     )
 }
+ 
 
-
-export default AddInput
+export default AddInput2

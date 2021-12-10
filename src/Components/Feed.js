@@ -1,15 +1,20 @@
 import React, { useState, useEffect } from "react";
 import { db, auth } from "../firebase";
+import { BrowserRouter, useNavigate } from "react-router-dom";
 //Firebase ver9 compliant
 import { collection, query, onSnapshot, orderBy } from "firebase/firestore";
 import Post from "./Post";
 import AddInput from "./AddInput";
 //Firebase ver9 compliant (modular)
 import { onAuthStateChanged, signOut } from "firebase/auth";
+import { Link } from "react-router-dom";
 
 const Feed = (props) => {
   // firebaseに作成した項目を受け取るための変数 = useState
   // 記述1. useStateを準備する
+  const navigate = useNavigate();
+
+
   const [posts, setPosts] = useState([
     {
       id: "",
@@ -19,14 +24,14 @@ const Feed = (props) => {
     },
   ]);
 
-  useEffect(() => {
+  // useEffect(() => {
     //Firebase ver9 compliant (modular)
-    const unSub = onAuthStateChanged(auth, (user) => {
-      console.log(user, "user情報");
-      !user && props.history.push("login");
-    });
-    return () => unSub();
-  });
+  //   const unSub = onAuthStateChanged(auth, (user) => {
+  //     console.log(user, "user情報", navigate);
+  //     !user && navigate("login");
+  //   });
+  //   return () => unSub();
+  // });
 
   // 記述2.useEffectを使ってデータを取得する
   useEffect(() => {
@@ -63,9 +68,12 @@ const Feed = (props) => {
       >
         ログアウト
       </button>
+      
+     
+
       <hr />
       {/* 記述4. AddInputを読み込む */}
-      <AddInput />
+      {/* <AddInput /> */}
 
       {/* 記述3.Postコンポーネントにデータを流し込む */}
       {/* && は存在するときのみ実行されるという書き方 */}

@@ -4,9 +4,11 @@ import { Link } from "react-router-dom";
 const Home = () => {
   return (
     <div>
-      公式SNS　Instagram　Twitter　
-      <Link to="/policy">プライバシーポリシー</Link>　
-     <Link to="/about">会社概要</Link>
+     {/* <Link to="/policy">プライバシーポリシー</Link>　 */}
+     <Link to="/login">ログイン</Link>　
+     <Link to="/AddInput2">投稿</Link>　
+     <Link to="/Profile">プロフィール</Link>　
+     <Link to="/Search">検索</Link>
     </div>
   );
 };
