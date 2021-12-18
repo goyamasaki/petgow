@@ -13,7 +13,7 @@ import Search from "./pages/Search";
 
 function App() {
 
-  return (
+    return (
         <div className="App">
           <h1>Pet Gow（in <span>Fire</span>Base)</h1> 
           <hr/>
@@ -28,7 +28,7 @@ function App() {
           <Route path="/addinput2" element={<AddInput2 />} />
           <Route path="/search" element={<Search />} />
           <Route path="/login" element={<Login />} />
-          <Route exact path="/login" component={Login} />
+          {/* <Route exact path="/login" component={Login} /> */}
           {/* <Route path="/contact" element={<Contact />} /> */}
           {/* 遷移させたい画面を記述する */}
          
@@ -37,6 +37,7 @@ function App() {
         <BrowserRouter>
         {/* ここのコメントアウトを解除するとデータが見れる */}
         {/* <Feed /> */}
+        {/* <Home /> */}
        </BrowserRouter>
         <hr/>
         

@@ -1,6 +1,9 @@
 import React from 'react';
 import { Link } from "react-router-dom";
 // import Feed from "./Components/Feed";
+import {  auth } from "../firebase";
+
+console.log(auth.currentUser);
 
 const Profile = () => {
     return (
@@ -16,7 +19,7 @@ const Profile = () => {
         {/* <BrowserRouter>
         <Feed />
        </BrowserRouter> */}
-
+       
         </div>
 
        

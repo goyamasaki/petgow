@@ -48,7 +48,7 @@ const Post = ({ id, text, image, timestamp }) => {
         {new Date(timestamp?.toDate()).toLocaleString()}
       </div>
 
-      <hr />
+      
       {/* 更新用のinput */}
       <input
         type="text"
@@ -58,6 +58,7 @@ const Post = ({ id, text, image, timestamp }) => {
       {/* 編集、削除のボタンを設置 */}
       <button onClick={editTask}>編集</button>
       <button onClick={deleteTask}>削除</button>
+      <hr />
     </div>
   );
 };

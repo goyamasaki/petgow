@@ -20,6 +20,8 @@ const Feed = (props) => {
       id: "",
       image: "",
       text: "",
+      basyo:"",//追加
+      keiro:"",
       timestamp: null,
     },
   ]);
@@ -43,6 +45,8 @@ const Feed = (props) => {
           id: doc.id,
           image: doc.data().image,
           text: doc.data().text,
+          basyo: doc.data().basyo,//追加
+          basyo: doc.data().keiro,//追加
           timestamp: doc.data().timestamp,
         }))
       );
@@ -84,6 +88,8 @@ const Feed = (props) => {
             key={item.id}
             image={item.image}
             text={item.text}
+            basyo={item.basyo}//追加
+            basyo={item.keiro}//追加
             timestamp={item.timestamp}
           />
         ))}

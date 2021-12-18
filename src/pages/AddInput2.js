@@ -10,6 +10,8 @@ import { Link } from "react-router-dom";
 const AddInput2 = () => { 
   // useStateを準備　画像を保持する、入力された文字を保持する
   const [textValue, setTextValue] = useState();
+  const [basyoValue, setBasyoValue] = useState();
+  const [keiroValue, setKeiroValue] = useState();
   const [image, setImage] = useState(null);
 
   const onChangeImageHandler = (e) => {
@@ -55,6 +57,8 @@ const sendClick = (e) => {
           addDoc(collection(db, "posts"), {
             image: url,
             text: textValue,
+            basyo: textValue,
+            keiro: textValue,
             timestamp: serverTimestamp(),
           });
         }
@@ -68,12 +72,16 @@ const sendClick = (e) => {
       addDoc(collection(db, "posts"), {
         image: "",
         text: textValue,
+        basyo: basyoValue,
+        keiro: keiroValue,
         timestamp: serverTimestamp(),
       });
     }
     // useStateを空にする=入力欄を空白にする処理
     setImage(null);
     setTextValue("");
+    setBasyoValue("");
+    setKeiroValue("");           
   };
 
 
@@ -96,6 +104,23 @@ const sendClick = (e) => {
           value={textValue}
           onChange={(e) => setTextValue(e.target.value)}
         />
+        <br></br>
+        //追加→
+        <input
+          placeholder="場所を入力"
+          type="basyo"
+          value={basyoValue}
+          onChange={(e) => setTextValue(e.target.value)}
+        />
+        <br></br>
+        //追加→
+        <input
+          placeholder="毛色を入力"
+          type="keiro"
+          value={keiroValue}
+          onChange={(e) => setTextValue(e.target.value)}
+        />
+       
 
         {/* 記述3.画像登録のinputを用意する */}
         
@@ -109,7 +134,7 @@ const sendClick = (e) => {
         >
           送信する
         </button>
-        <hr />
+        {/* <hr /> */}
       </form>
       
       
