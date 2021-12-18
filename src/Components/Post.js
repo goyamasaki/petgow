@@ -9,7 +9,7 @@ import {
   serverTimestamp,
 } from "firebase/firestore";
 
-const Post = ({ id, text, image, timestamp }) => {
+const Post = ({ id, text, image, basyo, keiro, timestamp }) => {
   // 更新用のstate
   const [title, setTitle] = useState(text);
 
@@ -37,6 +37,9 @@ const Post = ({ id, text, image, timestamp }) => {
     <div className="post">
       {/* 記述1. テキスト(text)情報を受け取る */}
       <div className="text">{text}</div>
+      <div className="keiro">{keiro}</div>
+      <div className="basyo">{basyo}</div>
+
       {image && (
         <div className="image">
           <img src={image} alt={text} />

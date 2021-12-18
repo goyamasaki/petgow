@@ -1,21 +1,20 @@
 import React,{useState} from 'react';
 import Search from "../pages/Search";
 
-const SearchBar=({onSubmit})=>{
+const SearchBar=({onSerchSubmit})=>{
   const[term,setTerm]=useState('');
-      const onFormSubmit=(event)=>{
+  const onFormSubmit=(event)=>{
       event.preventDefault();
       // onSubmit(term);
-      console.log(term);
-    };
+      console.log(term,onSerchSubmit);
+  };
     return(
-        <form onSubmit={onFormSubmit}class="ui form">
         <div class="field">
           <label>検索する→</label>
           <input   type="text"   name="search"    placeholder='' value={term} onChange={(event)=>{setTerm(event.target.value);
           }}/>
+          <button type="button" onClick={onSerchSubmit} data-value={term}>検索</button>
          </div>
-        </form>
          );
 };
 

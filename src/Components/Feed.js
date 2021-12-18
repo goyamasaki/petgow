@@ -46,7 +46,7 @@ const Feed = (props) => {
           image: doc.data().image,
           text: doc.data().text,
           basyo: doc.data().basyo,//追加
-          basyo: doc.data().keiro,//追加
+          keiro: doc.data().keiro,//追加
           timestamp: doc.data().timestamp,
         }))
       );
@@ -89,7 +89,7 @@ const Feed = (props) => {
             image={item.image}
             text={item.text}
             basyo={item.basyo}//追加
-            basyo={item.keiro}//追加
+            keiro={item.keiro}//追加
             timestamp={item.timestamp}
           />
         ))}

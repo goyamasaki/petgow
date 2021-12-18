@@ -57,8 +57,8 @@ const sendClick = (e) => {
           addDoc(collection(db, "posts"), {
             image: url,
             text: textValue,
-            basyo: textValue,
-            keiro: textValue,
+            basyo: basyoValue,
+            keiro: keiroValue,
             timestamp: serverTimestamp(),
           });
         }
@@ -110,7 +110,7 @@ const sendClick = (e) => {
           placeholder="場所を入力"
           type="basyo"
           value={basyoValue}
-          onChange={(e) => setTextValue(e.target.value)}
+          onChange={(e) => setBasyoValue(e.target.value)}
         />
         <br></br>
         //追加→
@@ -118,7 +118,7 @@ const sendClick = (e) => {
           placeholder="毛色を入力"
           type="keiro"
           value={keiroValue}
-          onChange={(e) => setTextValue(e.target.value)}
+          onChange={(e) => setKeiroValue(e.target.value)}
         />
        
 
