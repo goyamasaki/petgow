@@ -9,11 +9,14 @@ import Profile from "./pages/Profile";
 import AddInput2 from "./pages/AddInput2";
 import Search from "./pages/Search";
 
+  import { AuthProvider } from './AuthContext';
 
 
 function App() {
 
     return (
+      <AuthProvider>
+
         <div className="App">
           <h1>Pet  <span>Go</span>w</h1> 
           <hr/>
@@ -43,7 +46,8 @@ function App() {
         <hr/>
         
         </div>
-   
+        </AuthProvider>
+
   );
   }
   
