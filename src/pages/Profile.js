@@ -2,6 +2,10 @@ import React from 'react';
 import { Link } from "react-router-dom";
 // import Feed from "./Components/Feed";
 import {  auth } from "../firebase";
+// import AddInput2 from './AddInput2';
+import AddInput3 from './AddInput3';
+
+
 
 console.log(auth.currentUser);
 
@@ -10,11 +14,9 @@ const Profile = () => {
         <div>
             <Link to="/home">Home</Link>　
             <Link to="/AddInput2">投稿</Link>
-            <p>ここにプロフィールの入力画面を作る</p>
-            ペットの名前
-            犬種
-            年齢
-            性別
+            
+<AddInput3/>
+
 
         {/* <BrowserRouter>
         <Feed />
@@ -25,5 +27,7 @@ const Profile = () => {
        
     )
 }
+
+
 
 export default Profile

@@ -1,5 +1,5 @@
 import "./App.css";
-import Feed from "./Components/Feed";
+// import Feed from "./Components/Feed";
 import Login from "./Components/Login";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import About from "./pages/About";
@@ -15,15 +15,16 @@ function App() {
 
     return (
         <div className="App">
-          <h1>Pet Gow（in <span>Fire</span>Base)</h1> 
+          <h1>Pet  <span>Go</span>w</h1> 
           <hr/>
-     
+
           <BrowserRouter>
         <Routes>
           {/* 遷移させたい画面を記述する */}
+          <Route path="/" element={<Home />} />
           <Route path="/home" element={<Home />} />
-          <Route path="/about" element={<About />} />
-          <Route path="/policy" element={<Policy />} />
+          {/* <Route path="/about" element={<About />} /> */}
+          {/* <Route path="/policy" element={<Policy />} /> */}
           <Route path="/profile" element={<Profile />} />
           <Route path="/addinput2" element={<AddInput2 />} />
           <Route path="/search" element={<Search />} />
@@ -34,11 +35,11 @@ function App() {
          
         </Routes>
         </BrowserRouter><br/>
-        <BrowserRouter>
+        {/* <BrowserRouter> */}
         {/* ここのコメントアウトを解除するとデータが見れる */}
         {/* <Feed /> */}
         {/* <Home /> */}
-       </BrowserRouter>
+       {/* </BrowserRouter> */}
         <hr/>
         
         </div>

@@ -5,13 +5,15 @@ import { ref, uploadBytesResumable, getDownloadURL } from "firebase/storage";
 import { collection, addDoc, serverTimestamp } from "firebase/firestore";
 import { Link } from "react-router-dom";
 
-{/* <div><Route></Route></div> */}
+{/* アドインプット３はプロフィール用としてデータはgroupに入れる*/}
   
-const AddInput2 = () => { 
+const AddInput3 = () => { 
   // useStateを準備　画像を保持する、入力された文字を保持する
-  const [textValue, setTextValue] = useState();
+  const [nameValue, setNameValue] = useState();
   const [basyoValue, setBasyoValue] = useState();
-  const [keiroValue, setKeiroValue] = useState();
+  const [sexValue, setSexValue] = useState();
+  const [typeValue, setTypeValue] = useState();
+  const [ageValue, setAgeValue] = useState();
   const [image, setImage] = useState(null);
 
   const onChangeImageHandler = (e) => {
@@ -54,11 +56,13 @@ const sendClick = (e) => {
       //Firebase ver9 compliant
       await getDownloadURL(ref(storage, `images/${fileName}`)).then(
         async (url) => {
-          addDoc(collection(db, "posts"), {
+          addDoc(collection(db, "group"), {
             image: url,
-            text: textValue,
+            name: nameValue,
             basyo: basyoValue,
-            keiro: keiroValue,
+            sex: sexValue,
+            age: ageValue,
+            type: typeValue,
             timestamp: serverTimestamp(),
           });
         }
@@ -69,19 +73,24 @@ const sendClick = (e) => {
       //後で記述
     } else {
       //Firebase ver9 compliant
-      addDoc(collection(db, "posts"), {
+      addDoc(collection(db, "group"), {
         image: "",
-        text: textValue,
+        name: nameValue,
         basyo: basyoValue,
-        keiro: keiroValue,
+        sex: sexValue,
+        age: ageValue,
+        type: typeValue,
         timestamp: serverTimestamp(),
       });
     }
     // useStateを空にする=入力欄を空白にする処理
     setImage(null);
-    setTextValue("");
+    setNameValue("");
     setBasyoValue("");
-    setKeiroValue("");           
+    setSexValue("");
+    setAgeValue("");
+    setTypeValue("");
+    
   };
 
 
@@ -91,18 +100,19 @@ const sendClick = (e) => {
         
       {/* 登録の処理 */}
       {/* 記述1. formタグを記述 */}
-      投稿ページ　　
-      <Link to="/home">Home</Link>
+      プロフィールの登録
+      
       
       <form onSubmit={sendClick}>
       
         {/* 記述2.文字登録のinputを用意する */}
         
         <input
-          placeholder="テキストを入力"
-          type="text"
-          value={textValue}
-          onChange={(e) => setTextValue(e.target.value)}
+        // 名前に変更（データは？？
+          placeholder="ペットの名前"
+          type="name"
+          value={nameValue}
+          onChange={(e) => setNameValue(e.target.value)}
         />
         <br></br>
         <br></br>
@@ -118,23 +128,40 @@ const sendClick = (e) => {
 
         
         <input
-          placeholder="毛色を入力"
-          type="keiro"
-          value={keiroValue}
-          onChange={(e) => setKeiroValue(e.target.value)}
+          placeholder="性別"
+          type="sex"
+          value={sexValue}
+          onChange={(e) => setSexValue(e.target.value)}
+        />
+        <br></br>
+        <br></br>
+        <input
+          placeholder="年齢"
+          type="age"
+          value={ageValue}
+          onChange={(e) => setAgeValue(e.target.value)}
+        />
+        <br></br>
+        <br></br>
+        <input
+          placeholder="種類"
+          type="type"
+          value={typeValue}
+          onChange={(e) => setTypeValue(e.target.value)}
         />
        
 
         {/* 記述3.画像登録のinputを用意する */}
         <br></br>
         <br></br>
+        ペットの写真<br></br>
         <input type="file" onChange={onChangeImageHandler} />
 
         
 
         <button
           type="submit"
-          disabled={!textValue} //textValueが空の時は送信できない
+          disabled={!nameValue} //textValueが空の時は送信できない
         >
           送信する
         </button>
@@ -150,4 +177,4 @@ const sendClick = (e) => {
 }
  
 
-export default AddInput2
+export default AddInput3
