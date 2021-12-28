@@ -6,6 +6,7 @@ import { collection, addDoc, serverTimestamp } from "firebase/firestore";
 import { Link } from "react-router-dom";
 
 {/* <div><Route></Route></div> */}
+// アドインプット２は投稿ページ用
   
 const AddInput2 = () => { 
   // useStateを準備　画像を保持する、入力された文字を保持する

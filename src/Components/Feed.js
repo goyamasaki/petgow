@@ -1,13 +1,12 @@
 import React, { useState, useEffect } from "react";
 import { db, auth } from "../firebase";
-import { BrowserRouter, useNavigate } from "react-router-dom";
+import { BrowserRouter,Link, useNavigate } from "react-router-dom";
 //Firebase ver9 compliant
 import { collection, query, onSnapshot, orderBy } from "firebase/firestore";
 import Post from "./Post";
 import AddInput from "./AddInput";
 //Firebase ver9 compliant (modular)
 import { onAuthStateChanged, signOut } from "firebase/auth";
-import { Link } from "react-router-dom";
 
 const Feed = (props) => {
   // firebaseに作成した項目を受け取るための変数 = useState
@@ -64,7 +63,7 @@ const Feed = (props) => {
         onClick={async () => {
           try {
             await signOut(auth);
-            props.history.push("login");
+            navigate("/login");
           } catch (error) {
             alert(error.message);
           }
