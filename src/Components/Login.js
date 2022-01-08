@@ -5,6 +5,8 @@ import {
   onAuthStateChanged,
   getAuth,
   createUserWithEmailAndPassword,
+  GoogleAuthProvider,
+  signInWithPopup,
   signInWithEmailAndPassword,
 } from "firebase/auth";
 import { useNavigate  } from 'react-router-dom';
@@ -30,6 +32,21 @@ const Login = (props) => {
     return () => unSub();
   }, [props.history]);
 
+  //Google認証
+  const googleLogin  = () =>{
+    const provider = new GoogleAuthProvider();
+
+  const auth = getAuth();
+  signInWithPopup(auth,provider)
+  .then((result) =>{
+    console.log(result,"vv");
+    console.log("Googleアカウントでログインしました。");
+  })
+  .catch((error) =>{
+    console.error(error);
+    }); 
+  };
+
 
   //ボタンを押したときの動作
   const hundleSubmit = (event)=>{
@@ -46,15 +63,15 @@ const Login = (props) => {
     <div>
       {/* <h1>{isLogin ? "ログイン" : "登録"}</h1>
       <hr /> */}
-           
-        メール
+         ログインページ<br></br>  
+        mail　
         <input
           type="text"
           value={email}
           name="email"
           onChange={(e) => setEmail(e.target.value)}
         /><br></br>
-     　　   パスワード
+     　　   password　
         <input
           type="text"
           value={password}
@@ -65,11 +82,15 @@ const Login = (props) => {
           onClick={hundleSubmit}
         >
           {isLogin ? "ログイン" : "登録"}
-        </button>
+        </button><br></br>
+      <br></br>
+     Googleログイン<br></br>
+     <button onClick={googleLogin}>Googleアカウントでログイン</button>
+      <br></br><br></br>
      
-      <hr />
      
-      <Link to="/home">Home</Link>
+      <Link to="/home">Home</Link>　
+      <Link to="/register">新規登録</Link>
     </div>
 
     

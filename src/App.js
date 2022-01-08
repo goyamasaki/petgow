@@ -6,6 +6,8 @@ import Home from "./pages/Home";
 import Profile from "./pages/Profile";
 import AddInput2 from "./pages/AddInput2";
 import Search from "./pages/Search";
+// import Search from "./pages/Search2";
+
 //??
 // import { AuthProvider } from './AuthContext';
 
@@ -24,6 +26,7 @@ function App() {
           <Route path="/profile" element={<Profile />} />
           <Route path="/addinput2" element={<AddInput2 />} />
           <Route path="/search" element={<Search />} />
+          {/* <Route path="/search2" element={<Search2 />} /> */}
           <Route path="/login" element={<Login />} />
           <Route path="/register" element={<Register />} />
     
@@ -32,7 +35,7 @@ function App() {
         </BrowserRouter><br/>
     
         <hr/>
-        
+        ペットの情報だけを投稿するWebサイト🐶
         </div>
    
   );

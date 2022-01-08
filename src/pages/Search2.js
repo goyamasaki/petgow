@@ -11,7 +11,7 @@ import {
 } from "firebase/firestore";
 import SearchBar from "../Components/SearchBar";
 // import { BrowserRouter, Routes, Route } from “react-router-dom”;
-const Search = () => {
+const Search2 = () => {
   const [posts, setPosts] = useState([
     {
       id: "",
@@ -96,7 +96,7 @@ const Search = () => {
     </div>
   );
 };
-export default Search;
+export default Search2;
 
 
 
